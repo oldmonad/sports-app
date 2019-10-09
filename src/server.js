@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import { connect } from 'mongoose';
 import morgan from 'morgan';
 
+import router from './routes';
+
 const app = express();
 
 app.use(cors());
@@ -30,6 +32,9 @@ app.use(
   }),
 );
 app.use(express.json());
+
+// API routes
+app.use('/api/v1', router);
 
 // Handling unavailable routes
 app.all('*', (req, res) =>

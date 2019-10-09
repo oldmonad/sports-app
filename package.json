@@ -21,7 +21,9 @@
   "scripts": {
     "test": "jest",
     "start:dev": "NODE_ENV=development nodemon --exec babel-node src/server.js",
-    "lint": "node_modules/eslint/bin/eslint.js src --fix"
+    "lint": "node_modules/eslint/bin/eslint.js src --fix",
+    "prettier": "prettier --write '**/*.{js,jsx}'",
+    "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -40,6 +42,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
+    "coveralls": "^3.0.6",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.4.0",

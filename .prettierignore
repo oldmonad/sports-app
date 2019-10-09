@@ -6,3 +6,4 @@ doc/
 .eslintignore
 .gitignore
 .hound.yml
+.travis.yml
