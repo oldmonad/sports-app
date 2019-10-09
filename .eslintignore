@@ -1,0 +1,8 @@
+app.json
+.babelrc
+/doc
+.eslintrc
+.hound.yml
+.prettierrc
+.prettierignore
+.gitignore
