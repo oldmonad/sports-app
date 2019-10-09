@@ -6,3 +6,4 @@ app.json
 .prettierrc
 .prettierignore
 .gitignore
+.travis.yml
