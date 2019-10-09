@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/dbytecoderc/sports-app.svg?branch=develop)](https://travis-ci.org/dbytecoderc/sports-app) [![Coverage Status](https://coveralls.io/repos/github/dbytecoderc/sports-app/badge.svg?branch=develop)](https://coveralls.io/github/dbytecoderc/sports-app)
