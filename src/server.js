@@ -1,11 +1,19 @@
 import express from 'express';
+import '@babel/polyfill';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { connect } from 'mongoose';
+import session from 'express-session';
+import redisStore from 'connect-redis';
 // const redis   = require("redis");
+import redis from 'redis';
 // const session = require('express-session');
 // const redisStore = require('connect-redis')(session);
 import morgan from 'morgan';
+
+const setRedisStore = redisStore(session);
+
+const client = redis.createClient();
 
 import router from './routes';
 
@@ -20,6 +28,21 @@ if (process.env.NODE_ENV === 'development') {
 
 // enable use of dotenv config file.
 dotenv.config();
+
+app.use(
+  session({
+    secret: process.env.SECRET,
+    // create new redis store.
+    store: new setRedisStore({
+      host: 'localhost',
+      port: 6379,
+      client: client,
+      ttl: 260,
+    }),
+    saveUninitialized: false,
+    resave: false,
+  }),
+);
 
 // Connect to MongoDB
 connect(
